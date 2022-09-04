@@ -1,11 +1,11 @@
-variable "var.user_name" {
+variable "user_name" {
     type = string
     description = "The name of the IAM User to add to groups"
     default = ""
 }
 
-variable "var.groups_name" {
-    type = string
+variable "groups_name" {
+    type = list
     description = "A list of IAM Groups to add the user to"
     default = ""
 }
