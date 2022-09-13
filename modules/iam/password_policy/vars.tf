@@ -40,7 +40,7 @@ variable "password_age" {
   default = 35
 }
 
-variable "password_reuse_prevention" {
+variable "reuse_prevention" {
   type = number
   description = "The number of previous passwords that users are prevented from reusing"
   default = 5
