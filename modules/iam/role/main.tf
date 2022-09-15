@@ -1,4 +1,7 @@
 resource "aws_iam_role" "cluster" {
-  name = "${terraform.workspace}-${var.role_name}"
-  assume_role_policy = file("../policy_files/${var.file_name}")
+  name = var.role_name 
+  path = var.role_path
+  assume_role_policy = var.file_name != null ? jsonencode(file(var.file_path)) : null 
+  description = var.descrip 
+
 }
