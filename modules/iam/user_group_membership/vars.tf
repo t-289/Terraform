@@ -5,7 +5,7 @@ variable "user_name" {
 }
 
 variable "groups_name" {
-    type = list
+    type = list(string)
     description = "A list of IAM Groups to add the user to"
-    default = ""
+    default = [""]
 }
