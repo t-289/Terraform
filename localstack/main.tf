@@ -4,7 +4,7 @@ module "password_policy" {
 
 module "user" {
   source = "../modules/iam/user"
-  user_name = ["user_1", "user_2"]
+  user_name = ["user_1", "user_2", "user_3", ]
 }
 
 module "create_group" {
@@ -13,5 +13,7 @@ module "create_group" {
 
 module "group_attach" {
   source = "../modules/iam/user_group_membership"
-  groups_name = module.create_group.name
+  for_each = toset(module.user.name)
+  user_name = each.value
+  groups_name = [ module.create_group.name ]
 }
